@@ -27,8 +27,6 @@ namespace SLoader
             // Don't destroy on load - maybe we need this loader for loading more scenes
             DontDestroyOnLoad(gameObject);
 
-            // 
-            SceneManager.activeSceneChanged += OnSceneWasSwitched;
 
             // Get floating canvas component
             _canvas = transform.Find("WorldCanvas").GetComponent<Canvas>();
@@ -37,6 +35,12 @@ namespace SLoader
 
             // NOTE: Test
             Invoke("LoadFirstScene", 5);
+        }
+
+        public void Start()
+        {
+            // Fade out when the scene switched
+            SceneManager.activeSceneChanged += OnSceneWasSwitched;
         }
 
         /// <summary>
