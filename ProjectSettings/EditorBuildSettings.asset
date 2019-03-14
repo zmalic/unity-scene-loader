@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SLoader/Example/Scenes/loader.unity
     guid: 6b5c3850e3e2cb649b1620fe1f695fbb
+  - enabled: 1
+    path: Assets/SLoader/Example/Scenes/sceneA.unity
+    guid: b72727c981b71eb46946666c2cf8bb8c
+  - enabled: 1
+    path: Assets/SLoader/Example/Scenes/sceneB.unity
+    guid: 16d8a4559f1d1de45be09213eace8fa8
   m_configObjects: {}
