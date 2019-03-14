@@ -34,3 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Project unity-scene-loader
+Assets/_test/
+Assets/_test.meta
+
