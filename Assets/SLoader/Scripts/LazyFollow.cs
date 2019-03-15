@@ -39,6 +39,7 @@ namespace SLoader
 
         public void LateUpdate()
         {
+            _camera = Camera.main;
             Vector3 camPosition = _camera.transform.position;
             Vector3 oldPosition = transform.position;
 

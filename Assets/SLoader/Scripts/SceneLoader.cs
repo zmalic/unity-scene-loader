@@ -7,7 +7,12 @@ namespace SLoader
 {
     public class SceneLoader : MonoBehaviour
     {
+        [Tooltip("Name of first scene")]
         public string firstSceneToLoad = "";
+
+        [Tooltip("Minimum time to display the tip")]
+        [Range(1f, 20f)]
+        public float tipTime = 5f;
 
         int _loadSceneIndex;
         Transform _loadingPanel;
@@ -54,15 +59,15 @@ namespace SLoader
 
             // when tip loaded...
             TipLoader.OnTipLoaded += TipLoaded;
-
-            // When the loading scene starts, we need to load scene defined in the firstSceneToLoad
-            LoadFirstScene();
         }
 
         public void Start()
         {
             // Fade out when the scene switched
             SceneManager.activeSceneChanged += OnSceneWasSwitched;
+
+            // When the loading scene starts, we need to load scene defined in the firstSceneToLoad
+            LoadFirstScene();
         }
 
         /// <summary>
@@ -99,13 +104,26 @@ namespace SLoader
         private void TipLoaded(Tip t)
         {
             _loadingScreen.ShowTip(t);
-            StartCoroutine(LoadSceneAsync());
+            StartCoroutine(LoadSceneCoroutine());
         }
 
-        IEnumerator LoadSceneAsync()
+        IEnumerator LoadSceneCoroutine()
         {
             _lazyFollow.Follow();
-            yield return new WaitForSeconds(5);
+            float loadingTime = 0;
+            
+            AsyncOperation asincOperation = SceneManager.LoadSceneAsync(_loadSceneIndex);
+            asincOperation.allowSceneActivation = false;
+
+            while (asincOperation.progress < 0.9f || loadingTime < tipTime)
+            {
+                loadingTime += Time.deltaTime;
+                yield return null;
+                float progress = Mathf.Min(asincOperation.progress / 0.9f, loadingTime / tipTime);
+                _loadingScreen.UpdateLoadingBar(progress);
+            }
+
+
             _fader.FadeIn();
             while (_fader.fading)
             {
@@ -113,8 +131,7 @@ namespace SLoader
             }
             _lazyFollow.Stop();
 
-
-            SceneManager.LoadSceneAsync(_loadSceneIndex);
+            asincOperation.allowSceneActivation = true;
         }
 
 

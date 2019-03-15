@@ -35,7 +35,7 @@ namespace SLoader
             while (currentFadingTime <= fadingTime)
             {
                 currentFadingTime += Time.deltaTime;
-                yield return new WaitForEndOfFrame();
+                yield return null;
                 float alpha = fadeIn ? currentFadingTime / fadingTime : 1 - currentFadingTime / fadingTime;
                 faderImage.color = new Color(faderImage.color.r, faderImage.color.g, faderImage.color.b, alpha);
             }

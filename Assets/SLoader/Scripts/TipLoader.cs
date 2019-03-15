@@ -8,7 +8,7 @@ namespace SLoader
     public class TipLoader : MonoBehaviour
     {
         [Tooltip("Load tip from web")]
-        public bool loadFromWeb = true;
+        public bool loadFromWeb = false;
 
         [Tooltip("Web url with tooltips data")]
         public string url = "";

@@ -273,26 +273,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &297861132 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 297861132, guid: acc1c574576e49e429c26166e1e47ac9,
-    type: 3}
-  m_PrefabInstance: {fileID: 8320282614190784712}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &297861137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297861132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cddc9240d529db640af112e03dd68943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadingTime: 1
-  faderImage: {fileID: 1009493756}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,85 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horisontalSpeed: 2.5
   verticalSpeed: 2.5
---- !u!114 &1009493756 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1009493756, guid: acc1c574576e49e429c26166e1e47ac9,
-    type: 3}
-  m_PrefabInstance: {fileID: 8320282614190784712}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1368450081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1368450084}
-  - component: {fileID: 1368450083}
-  - component: {fileID: 1368450082}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1368450082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368450081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1368450083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368450081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1368450084
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368450081}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8320282614190784712
+--- !u!1001 &832938634
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -479,6 +381,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320282612841824783, guid: acc1c574576e49e429c26166e1e47ac9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8320282612841824768, guid: acc1c574576e49e429c26166e1e47ac9,
         type: 3}
@@ -535,25 +442,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1141359005, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
-      propertyPath: loadFromWeb
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 297861132, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009493754, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
-      propertyPath: m_Name
-      value: FaderImage
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009493756, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009493756, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
-      propertyPath: m_Color.a
-      value: 1
+    - target: {fileID: 1358463689, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
+      propertyPath: firstSceneToLoad
+      value: sceneB
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
