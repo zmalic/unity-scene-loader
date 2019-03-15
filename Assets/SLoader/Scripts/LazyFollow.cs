@@ -20,16 +20,21 @@ namespace SLoader
 
         Camera _camera;
 
-        public void Start()
-        {
-            Reset();
-        }
-
-        public void Reset()
+        /// <summary>
+        ///  Move to target position and set the camera, enable panel and follow...
+        /// </summary>
+        public void Follow()
         {
             _camera = Camera.main;
             Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
             transform.position = ray.GetPoint(panelDistance);
+            transform.rotation = Quaternion.LookRotation(_camera.transform.position);
+            gameObject.SetActive(true);
+        }
+
+        public void Stop()
+        {
+            gameObject.SetActive(false);
         }
 
         public void LateUpdate()

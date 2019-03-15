@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 160469082}
   - component: {fileID: 160469081}
   - component: {fileID: 419712115}
+  - component: {fileID: 1841502848}
   m_Layer: 5
-  m_Name: WorldCanvas
+  m_Name: LoadingScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &160469080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -119,6 +120,21 @@ MonoBehaviour:
   panelDistance: 1.6
   lazyRotation: 0
   keepDistance: 1
+--- !u!114 &1841502848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160469079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ab6749633c02f4d9b3146abda8e7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipTitle: {fileID: 2134285435}
+  tipDescription: {fileID: 387632192}
+  loadingBar: {fileID: 2130834326063831232}
 --- !u!1 &387632190
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,10 +213,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Nulla facilisi. Morbi odio lorem, scelerisque in purus non, mattis venenatis
-    enim. Phasellus aliquet felis at ante blandit dapibus. Morbi ultrices erat sed
-    lectus sodales, sed ultrices felis tristique. Donec aliquet, ligula eget finibus
-    placerat, nisi lectus mattis augue, in pretium elit leo sit amet risus. '
+  m_Text: DESCRIPTION
 --- !u!1 &2134285433
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +292,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem Ipsum
+  m_Text: TITLE
 --- !u!1 &933336336561677337
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +304,7 @@ GameObject:
   - component: {fileID: 2340275687106127682}
   - component: {fileID: 2130834326063831232}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: LoadingBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +374,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.16
+  m_Value: 0.526
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -474,7 +487,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.526, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -635,6 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8320282612841824768}
   - component: {fileID: 1358463689}
+  - component: {fileID: 1141359005}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -670,3 +684,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSceneToLoad: sceneA
+--- !u!114 &1141359005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320282612841824783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a854f79e9b5fd314b890c988ebc92432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadFromWeb: 0
+  url: http://davand.net/app.php

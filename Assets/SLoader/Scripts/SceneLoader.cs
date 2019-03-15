@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,10 +8,13 @@ namespace SLoader
     public class SceneLoader : MonoBehaviour
     {
         public string firstSceneToLoad = "";
-        private int _loadSceneIndex;
 
+        int _loadSceneIndex;
+        Transform _loadingPanel;
         Canvas _canvas;
         LazyFollow _lazyFollow;
+        TipLoader _tipLoader;
+        LoadingScreen _loadingScreen;
 
         public static SceneLoader Instance { get; protected set; }
 
@@ -29,15 +33,26 @@ namespace SLoader
             DontDestroyOnLoad(gameObject);
 
 
-            // Get floating canvas component
-            Transform worldCanvas = transform.Find("WorldCanvas");
-            _canvas = worldCanvas.GetComponent<Canvas>();
-            _lazyFollow = worldCanvas.GetComponent<LazyFollow>();
+            // Get world canvas transform
+            _loadingPanel = transform.Find("LoadingScreen");
+
+            // floating canvas component
+            _canvas = _loadingPanel.GetComponent<Canvas>();
+
+            // lazy follow instance
+            _lazyFollow = _loadingPanel.GetComponent<LazyFollow>();
+
+            // tip loader instance
+            _tipLoader = gameObject.GetComponent<TipLoader>();
+
+            // loading screen instance
+            _loadingScreen = _loadingPanel.GetComponent<LoadingScreen>();
+
+            // when tip loaded...
+            TipLoader.OnTipLoaded += TipLoaded;
 
             // When the loading scene starts, we need to load scene defined in the firstSceneToLoad
-
-            // NOTE: Test
-            Invoke("LoadFirstScene", 5);
+            LoadFirstScene();
         }
 
         public void Start()
@@ -68,13 +83,28 @@ namespace SLoader
             }
             _canvas.worldCamera = Camera.main;
             _loadSceneIndex = sceneIndex;
-            SceneManager.LoadSceneAsync(_loadSceneIndex);
+            _tipLoader.Load();
         }
 
         public void OnSceneWasSwitched(Scene oldScene, Scene newScene)
         {
             print("Scene was switched");
-            _lazyFollow.Reset();
+        }
+
+
+        private void TipLoaded(Tip t)
+        {
+            print(t.title);
+            _loadingScreen.ShowTip(t);
+            StartCoroutine(LoadSceneAsync());
+        }
+
+        IEnumerator LoadSceneAsync()
+        {
+            _lazyFollow.Follow();
+            yield return new WaitForSeconds(5);
+            _lazyFollow.Stop();
+            SceneManager.LoadSceneAsync(_loadSceneIndex);
         }
 
 

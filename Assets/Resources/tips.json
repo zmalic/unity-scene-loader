@@ -1,0 +1,33 @@
+{
+	"tips": 
+	[
+		{
+			"title": "Aliquam ultricies feugiat lorem et tincidunt",
+			"description": "Maecenas non justo ut nunc laoreet ultrices. Cras commodo consectetur lectus sit amet iaculis. Phasellus tincidunt vulputate nunc. Pellentesque scelerisque sollicitudin dolor, porta ullamcorper diam pulvinar in. In at lectus lobortis, fermentum nisl ut, tempus neque. "
+		},
+		{
+			"title": "Phasellus quis semper mauris",
+			"description": "Mauris imperdiet semper lobortis. Nullam molestie, nulla efficitur sodales sagittis, arcu lectus tincidunt metus, id porta quam est a ligula. Quisque condimentum non sapien sed congue."
+		},
+		{
+			"title": "Suspendisse imperdiet et lectus at vulputate",
+			"description": "In vitae finibus elit. Integer tellus est, suscipit et varius sit amet, hendrerit ut purus. Aliquam blandit pharetra vestibulum. Suspendisse iaculis in metus quis molestie."
+		},
+		{
+			"title": "Nulla ac aliquet nisl",
+			"description": "Curabitur sagittis, neque in sagittis vehicula, risus turpis euismod velit, id finibus elit libero et nulla. Phasellus lobortis magna nec laoreet dignissim."
+		},
+		{
+			"title": "In eu eros commodo",
+			"description": "Nulla auctor rutrum dolor, tristique maximus augue maximus condimentum. Phasellus diam neque, tincidunt in dolor sed, ultricies ultricies massa."
+		},
+		{
+			"title": "Quisque quis lorem vestibulum",
+			"description": "Maecenas ornare nulla sed viverra iaculis. Suspendisse congue nisl ut aliquam porta. Sed nec quam sagittis, posuere est quis, fermentum ex. Phasellus ut felis lectus. Aenean eleifend mi sit amet tempor laoreet. Integer metus ex, vehicula quis efficitur et, maximus eu odio. Vivamus id dolor accumsan, faucibus ligula quis, euismod enim. Cras convallis tempor accumsan. Cras sit amet interdum risus."
+		},
+		{
+			"title": "Phasellus sed tellus libero",
+			"description": "Praesent malesuada enim eget venenatis convallis. Sed convallis, risus a venenatis rutrum, nunc lorem imperdiet mi, sit amet auctor diam odio ac orci."
+		}
+	]
+}
