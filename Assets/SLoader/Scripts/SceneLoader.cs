@@ -10,6 +10,7 @@ namespace SLoader
         private int _loadSceneIndex;
 
         Canvas _canvas;
+        LazyFollow _lazyFollow;
 
         public static SceneLoader Instance { get; protected set; }
 
@@ -29,7 +30,9 @@ namespace SLoader
 
 
             // Get floating canvas component
-            _canvas = transform.Find("WorldCanvas").GetComponent<Canvas>();
+            Transform worldCanvas = transform.Find("WorldCanvas");
+            _canvas = worldCanvas.GetComponent<Canvas>();
+            _lazyFollow = worldCanvas.GetComponent<LazyFollow>();
 
             // When the loading scene starts, we need to load scene defined in the firstSceneToLoad
 
@@ -71,6 +74,7 @@ namespace SLoader
         public void OnSceneWasSwitched(Scene oldScene, Scene newScene)
         {
             print("Scene was switched");
+            _lazyFollow.Reset();
         }
 
 
