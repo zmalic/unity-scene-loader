@@ -15,6 +15,7 @@ namespace SLoader
         LazyFollow _lazyFollow;
         TipLoader _tipLoader;
         LoadingScreen _loadingScreen;
+        Fader _fader;
 
         public static SceneLoader Instance { get; protected set; }
 
@@ -47,6 +48,9 @@ namespace SLoader
 
             // loading screen instance
             _loadingScreen = _loadingPanel.GetComponent<LoadingScreen>();
+
+            // fader instance
+            _fader = transform.Find("Fader").GetComponent<Fader>();
 
             // when tip loaded...
             TipLoader.OnTipLoaded += TipLoaded;
@@ -88,13 +92,12 @@ namespace SLoader
 
         public void OnSceneWasSwitched(Scene oldScene, Scene newScene)
         {
-            print("Scene was switched");
+            _fader.FadeOut();
         }
 
 
         private void TipLoaded(Tip t)
         {
-            print(t.title);
             _loadingScreen.ShowTip(t);
             StartCoroutine(LoadSceneAsync());
         }
@@ -103,7 +106,14 @@ namespace SLoader
         {
             _lazyFollow.Follow();
             yield return new WaitForSeconds(5);
+            _fader.FadeIn();
+            while (_fader.fading)
+            {
+                yield return new WaitForEndOfFrame();
+            }
             _lazyFollow.Stop();
+
+
             SceneManager.LoadSceneAsync(_loadSceneIndex);
         }
 
