@@ -28,7 +28,7 @@ Start scene is SLoader/Example/Scenes/loader.unity
 - SceneLoader - Load From Web: You can load tips from the web. If tip doesn't exist, tips from resources will be used
 - SceneLoader - Url: In the example, I'm using web service from [davand.net](http://davand.net) for getting tips. 
 	Yes, this is a to-do list, but it's good enough for example.  That to-do is my open 
-	source project ([SimpleMVC PHP framework](https://github.com/zmalic/simple-mvc-php-framework/settings)). I'm using random of 
+	source project ([SimpleMVC PHP framework](https://github.com/zmalic/simple-mvc-php-framework)). I'm using random of 
 	first 15 to-does for tips, so you can edit them on [davand.net](http://davand.net)
 - SceneLoader/LoadingScreen: You can customize loading panel by params on LazyFollow script
 - SceneLoader/Fader: You can customize fading animation duration
