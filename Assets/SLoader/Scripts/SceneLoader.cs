@@ -22,9 +22,16 @@ namespace SLoader
         LoadingScreen _loadingScreen;
         Fader _fader;
 
+        /// <summary>
+        /// Instance of SceneLoader object,
+        /// so we can call it from the other scenes using
+        /// SceneLoader.Instance?.LoadScene(<SCENE_NAME>);
+        /// </summary>
         public static SceneLoader Instance { get; protected set; }
 
-
+        /// <summary>
+        /// Init fields and listeners
+        /// </summary>
         public void Awake()
         {
             // Make sure that there is only one instance of SceneLoader
@@ -61,10 +68,13 @@ namespace SLoader
             TipLoader.OnTipLoaded += TipLoaded;
         }
 
+        /// <summary>
+        /// Set activeSceneChanged listener and load the first scene defined in the firstSceneToLoad
+        /// </summary>
         public void Start()
         {
-            // Fade out when the scene switched
-            SceneManager.activeSceneChanged += OnSceneWasSwitched;
+            // Fade out when the scene was switched
+            SceneManager.activeSceneChanged += OnSceneSwitched;
 
             // When the loading scene starts, we need to load scene defined in the firstSceneToLoad
             LoadFirstScene();
@@ -90,31 +100,49 @@ namespace SLoader
             {
                 throw new System.Exception("The scene " + sceneIndex + " is unknown or isn't ready for load");
             }
-            _canvas.worldCamera = Camera.main;
             _loadSceneIndex = sceneIndex;
+
+            /// First step - load tip
             _tipLoader.Load();
         }
 
-        public void OnSceneWasSwitched(Scene oldScene, Scene newScene)
+        /// <summary>
+        /// When sceen has swiched start the fade out animation
+        /// </summary>
+        /// <param name="oldScene"></param>
+        /// <param name="newScene"></param>
+        public void OnSceneSwitched(Scene oldScene, Scene newScene)
         {
             _fader.FadeOut();
         }
 
 
+        /// <summary>
+        /// When tip was loaded, show it and load scene
+        /// </summary>
+        /// <param name="t"></param>
         private void TipLoaded(Tip t)
         {
             _loadingScreen.ShowTip(t);
             StartCoroutine(LoadSceneCoroutine());
         }
 
+
+        /// <summary>
+        /// Load scene async
+        /// </summary>
+        /// <returns></returns>
         IEnumerator LoadSceneCoroutine()
         {
+            // Start panel follow
             _lazyFollow.Follow();
             float loadingTime = 0;
-            
+
+            // create AsyncOperation and deny auto scene activation
             AsyncOperation asincOperation = SceneManager.LoadSceneAsync(_loadSceneIndex);
             asincOperation.allowSceneActivation = false;
 
+            // while scene is loading or until the loadingTime does not expire show the panel and update progres bar value
             while (asincOperation.progress < 0.9f || loadingTime < tipTime)
             {
                 loadingTime += Time.deltaTime;
@@ -123,14 +151,17 @@ namespace SLoader
                 _loadingScreen.UpdateLoadingBar(progress);
             }
 
-
+            // when loading has finished, show fade in animation 
             _fader.FadeIn();
             while (_fader.fading)
             {
                 yield return new WaitForEndOfFrame();
             }
+
+            // stop panel following
             _lazyFollow.Stop();
 
+            // start new scene
             asincOperation.allowSceneActivation = true;
         }
 

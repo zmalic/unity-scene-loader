@@ -4,7 +4,7 @@ namespace SLoader
 {
     public class LazyFollow : MonoBehaviour
     {
-        [Tooltip("Coefficient of laziness")]
+        [Tooltip("Tracking speed")]
         [Range(0.1f, 10f)]
         public float speed = 3f;
 
@@ -32,6 +32,9 @@ namespace SLoader
             gameObject.SetActive(true);
         }
 
+        /// <summary>
+        /// Disable game object and stop following
+        /// </summary>
         public void Stop()
         {
             gameObject.SetActive(false);
