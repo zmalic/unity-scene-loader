@@ -10,7 +10,7 @@ namespace SLoader
         [Tooltip("Name of first scene")]
         public string firstSceneToLoad = "";
 
-        [Tooltip("Minimum time to display the tip")]
+        [Tooltip("Minimum time to display tip")]
         [Range(1f, 20f)]
         public float tipTime = 5f;
 
@@ -25,7 +25,7 @@ namespace SLoader
         /// <summary>
         /// Instance of SceneLoader object,
         /// so we can call it from the other scenes using
-        /// SceneLoader.Instance?.LoadScene(<SCENE_NAME>);
+        /// SceneLoader.Instance?.LoadScene(<SCENE_NAME_OR_INDEX>);
         /// </summary>
         public static SceneLoader Instance { get; protected set; }
 
