@@ -444,7 +444,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1358463689, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
       propertyPath: firstSceneToLoad
-      value: sceneB
+      value: sceneA
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141359005, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
+      propertyPath: loadFromWeb
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141359005, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
+      propertyPath: url
+      value: davand.net/app.php
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
