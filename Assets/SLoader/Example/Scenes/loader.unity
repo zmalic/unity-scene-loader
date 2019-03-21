@@ -454,5 +454,15 @@ PrefabInstance:
       propertyPath: url
       value: davand.net/app.php
       objectReference: {fileID: 0}
+    - target: {fileID: 1672285541006660364, guid: acc1c574576e49e429c26166e1e47ac9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672285541006660364, guid: acc1c574576e49e429c26166e1e47ac9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc1c574576e49e429c26166e1e47ac9, type: 3}
