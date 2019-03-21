@@ -63,9 +63,21 @@ namespace SLoader
 
             // fader instance
             _fader = transform.Find("Fader").GetComponent<Fader>();
+        }
 
+        public void OnEnable()
+        {
             // when tip loaded...
             TipLoader.OnTipLoaded += TipLoaded;
+
+            // Fade out when the scene was switched
+            SceneManager.activeSceneChanged += OnSceneSwitched;
+        }
+
+        public void OnDisable()
+        {
+            TipLoader.OnTipLoaded -= TipLoaded;
+            SceneManager.activeSceneChanged -= OnSceneSwitched;
         }
 
         /// <summary>
@@ -73,8 +85,6 @@ namespace SLoader
         /// </summary>
         public void Start()
         {
-            // Fade out when the scene was switched
-            SceneManager.activeSceneChanged += OnSceneSwitched;
 
             // When the loading scene starts, we need to load scene defined in the firstSceneToLoad
             LoadFirstScene();
@@ -98,7 +108,7 @@ namespace SLoader
         {
             if (!ReadyForLoad(sceneIndex))
             {
-                throw new System.Exception("Scene is unknown or isn't ready for load");
+                throw new SceneLoadException("Scene is unknown or isn't ready for load");
             }
             _loadSceneIndex = sceneIndex;
 
