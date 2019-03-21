@@ -28,7 +28,7 @@ namespace SLoader
             _camera = Camera.main;
             Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
             transform.position = ray.GetPoint(panelDistance);
-            transform.rotation = Quaternion.LookRotation(_camera.transform.position);
+            transform.rotation = Quaternion.LookRotation(transform.position -_camera.transform.position);
             gameObject.SetActive(true);
         }
 

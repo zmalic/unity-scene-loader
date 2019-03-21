@@ -98,7 +98,7 @@ namespace SLoader
         {
             if (!ReadyForLoad(sceneIndex))
             {
-                throw new System.Exception("The scene " + sceneIndex + " is unknown or isn't ready for load");
+                throw new System.Exception("Scene is unknown or isn't ready for load");
             }
             _loadSceneIndex = sceneIndex;
 
